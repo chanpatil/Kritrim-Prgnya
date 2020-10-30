@@ -1,0 +1,157 @@
+{% extends 'bootstrap/base.html'%}
+{% block content%}
+<!-- link rel="stylesheet" href="static/main.css" /-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<style type="text/css">
+   body{
+   font:15px/1.5 Arial, Helvetica,sans-serif;
+   }
+   .spinner-1:before{
+   content: "";
+   box-sizing: border-box;
+   position: absolute;
+   top:50%;
+   left: 50%;
+   height: 60px;
+   width: 60px;
+   margin-top: -30px;
+   margin-left: -30px;
+   border-radius: 50%;
+   border:6px solid transparent;
+   border-top-color: #0091EA;
+   animation: spinner 0.7s linear infinite;
+   }
+   @keyframes spinner {
+   to {
+   transform: rotate(360deg);
+   }
+   }
+   li { background-color:#BDBDBD; }
+   li:nth-child(odd) { background-color:#0091EA; }
+   .btn-xclg{
+   width: 150px;
+    height: 34px;
+    font-size: 13px;
+    font-weight: bold;
+    
+}
+.Logostyle
+{width:100% !important;
+height:280px !important;
+
+}
+.headerstyle
+{
+background-image: :
+}
+   }
+
+</style>
+<div class="container">
+
+      <img class="Logostyle" src="/static/KPLogo.jpg" alt="www.MouriTech.com">
+
+</div>
+<link rel="shortcut icon" href="">
+<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+
+
+
+
+<div class="container container-fluid">
+   <div class="panel panel-default">
+      <div class="panel-heading text-center">
+         <h3 class="panel-title"><strong>Exploratory Data Analysis</strong></h3>
+      </div>
+      <div class="panel-body">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="col-md-4">
+                  <form action = "{{ url_for('dataset_analyse') }}" method = "POST" enctype="multipart/form-data">
+                     <input type = "file" name = "file" />
+                     <br>
+                     <input type = "submit" value="Peliminary Analysis" class="btn-xclg btn btn-primary"/>
+                  </form>
+               </div>
+               <div class="col-md-4">
+                  <form action = "{{ url_for('detailed_analysis') }}" method = "POST" enctype="multipart/form-data">
+                     <input type = "file" name = "file" />
+                     <br>
+                     <input type = "submit" value="Detailed Analysis" class="btn btn-primary btn-xclg "/>
+                  </form>
+               </div>
+               <div class="col-md-4">
+                  <form action = "{{ url_for('exploratory_data_analysis') }}" method = "POST" enctype="multipart/form-data">
+                     <input type = "file" name = "file" />
+                     <br>
+                     <input type = "submit" style="width: 60%;" value="Exploratory Data Analysis" class="btn-xclg btn btn-primary"/>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="container container-fluid">
+<div class="panel panel-default">
+    <div class="panel-heading text-center">
+      <h3 class="panel-title"><strong>Descriptive Analysis</strong></h3>
+    </div>
+    <div class="panel-body">
+     <div class="row">
+      <div class="col-md-12">
+         <div class="col-md-4">
+            <form action = "{{ url_for('data_profiling') }}" method = "POST" enctype="multipart/form-data">
+               <input type = "file" name = "file" />
+               <br>
+               <input type = "submit" value="Data Profiling" class="btn-xclg btn btn-primary"/>
+            </form>
+         </div>
+         <div class="col-md-4">
+            <form action = "{{ url_for('aspect_analysis') }}" method = "POST" enctype="multipart/form-data">
+               <input type = "file" name = "file" />
+               <br>
+               <input type = "submit" value="Aspect Generation" class="btn-xclg btn btn-primary"/>
+            </form>
+         </div>
+         <div class="col-md-4">
+            <form action = "{{ url_for('sentiment_analytics') }}" method = "POST" enctype="multipart/form-data">
+               <input type = "file" name = "file" />
+               <br>
+               <input type = "submit" value="Sentiment Analysis" class="btn-xclg btn btn-primary"/>
+            </form>
+         </div>
+      </div>
+   </div>
+    </div>
+  </div>
+</div>
+
+<style>
+   footer {
+   position: relative;
+   height: 300px;
+   width: 100%;
+   }
+   p.copyright {
+   position: absolute;
+   width: 100%;
+   line-height: 200px;
+   font-size: 1.0em;
+   text-align: center;
+   bottom:0;
+   }
+</style>
+<footer>
+   <p class="copyright">All Right Reserved. MOURI Tech © 2019</p>
+</footer>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+<script>
+   function myFunction() {
+       document.getElementById("myForm").reset();
+   }
+</script>
+{% endblock %}
